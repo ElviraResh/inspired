@@ -15,6 +15,7 @@
     @include tablet {
       padding: 24px 0 16px;
     }
+
     @include mobile {
       padding: 16px 0 16px;
       grid-template-areas:
@@ -93,7 +94,7 @@
       line-height: 17px;
       margin-bottom: 10px;
 
-      @include mobile {
+      @include tablet {
         font-size: 12px;
         line-height: 15px;
         margin-bottom: 7px;
@@ -109,6 +110,9 @@
     &__subitem {
       display: flex;
       flex-direction: column;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
 
       .footer__link:not(:last-child) {
         margin-bottom: 6px;
@@ -132,7 +136,7 @@
       text-transform: none;
       margin-bottom: 20px;
 
-      @include mobile {
+      @include tablet {
         font-size: 12px;
         line-height: 15px;
         margin-bottom: 16px;
@@ -192,7 +196,7 @@
     line-height: 130%;
     display: flex;
     align-items: flex-end;
-    
+
     @include tablet {
       font-size: 10px;
     }
