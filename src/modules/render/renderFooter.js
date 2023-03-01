@@ -1,3 +1,5 @@
+import { createElement } from "../createElement";
+
 export const renderFooter = () => {
   const footer = document.querySelector('.footer');
 
