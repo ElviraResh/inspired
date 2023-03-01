@@ -7,30 +7,46 @@ import { renderFooter } from './modules/render/renderFooter';
 import { renderHeader } from './modules/render/renderHeader';
 import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
+import { getData } from './modules/getData';
+import { API_URL, DATA } from './modules/const';
+import { createCssColor } from './modules/createCssColor';
 
-router.on('*', () => {
-  renderHeader();
-  renderFooter();
-});
+const init = async () => {
+  DATA.navigation = await getData(`${API_URL}/api/categories`);
+  DATA.colors = await getData(`${API_URL}/api/colors`);
 
-router.on('/', () => {
-  mainPage();
-});
+  createCssColor(DATA.colors);
 
-router.on('women', () => {
-  womenMainPage();
-});
+  router.on('*', () => {
+    renderHeader();
+    renderFooter();
+  });
+  
+  router.on('/', () => {
+    mainPage();
+  });
+  
+  router.on('women', () => {
+    womenMainPage();
+  });
+  
+  router.on('men', () => {
+    menMainPage();
+  });
+  
+  /* setTimeout(() => {
+    router.navigate('men');
+  }, 3000)
+  
+  setTimeout(() => {
+    router.navigate('women');
+  }, 6000) */
 
-router.on('men', () => {
-  menMainPage();
-});
+  router.resolve();
+}
 
-/* setTimeout(() => {
-  router.navigate('men');
-}, 3000)
+init();
 
-setTimeout(() => {
-  router.navigate('women');
-}, 6000) */
 
-router.resolve();
+
+
