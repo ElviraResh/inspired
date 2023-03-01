@@ -1,6 +1,7 @@
 import { createElement } from "../createElement";
 
 import logo from '../../img/logo.svg';
+import { search, searchToggle } from "./renderSearch";
 
 export const searchButton = createElement('button', {
   className: 'header__link',
@@ -18,6 +19,10 @@ export const searchButton = createElement('button', {
           stroke-linejoin="round"/>
     </svg>
   `
+}, {
+  cb(btn) {
+    btn.addEventListener('click', searchToggle);
+  }
 });
 
 export const cartLink = createElement('button', {
@@ -140,4 +145,5 @@ createElement(
 export const renderHeader = () => {
   const header = document.querySelector('.header');
   header.append(container);
+  header.after(search);
 }
