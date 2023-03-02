@@ -1,4 +1,4 @@
-import { createElement } from "./createElement"
+import { createElement } from "./utils/createElement"
 
 export const createCssColor = (colors) => {
   let style = createElement('style');

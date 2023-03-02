@@ -1,15 +1,16 @@
 import './index.html';
 import './index.scss';
 
-import { router } from './modules/router';
-import { mainPage } from './modules/mainPage';
+import { router } from './modules/utils/router';
+import { mainPageController } from './modules/controllers/mainPageController';
 import { renderFooter } from './modules/render/renderFooter';
 import { renderHeader } from './modules/render/renderHeader';
 import { getData } from './modules/getData';
 import { API_URL, DATA } from './modules/const';
 import { createCssColor } from './modules/createCssColor';
-import { createElement } from './modules/createElement';
-import { categoryPage } from './modules/categoryPage';
+import { createElement } from './modules/utils/createElement';
+import { categoryPageController } from './modules/controllers/categoryPageController';
+import { searchPageController } from './modules/controllers/searchController';
 
 const init = async () => {
   try {
@@ -24,18 +25,20 @@ const init = async () => {
     });
     
     router.on('/', () => {
-      mainPage();
+      mainPageController();
     });
     
     router.on('women', () => {
-      mainPage('women');
+      mainPageController('women');
     });
     
     router.on('men', () => {
-      mainPage('men');
+      mainPageController('men');
     });
 
-    router.on('/:gender/:category', categoryPage);
+    router.on('/:gender/:category', categoryPageController);
+
+    router.on('search', searchPageController);
     
     /* setTimeout(() => {
       router.navigate('men');
