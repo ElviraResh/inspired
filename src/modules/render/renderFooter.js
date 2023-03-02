@@ -1,4 +1,4 @@
-import { DATA } from "../const";
+import { DATA, footer } from "../const";
 import { createElement } from "../utils/createElement";
 
 const createFooterCategory = () => {
