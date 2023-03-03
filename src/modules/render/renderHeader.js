@@ -25,7 +25,7 @@ export const searchButton = createElement('button', {
   }
 });
 
-export const cartLink = createElement('button', {
+export const cartLink = createElement('a', {
   className: 'header__link',
   innerHTML: `
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -55,7 +55,7 @@ export const cartLink = createElement('button', {
   href: '#cart',
 });
 
-export const favoriteLink = createElement('button', {
+export const favoriteLink = createElement('a', {
   className: 'header__link',
   innerHTML: `
     <svg width="24" height="24" viewBox="0 0 24 24"
